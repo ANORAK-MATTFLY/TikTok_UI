@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_ui/widgets/tiktok_icons.dart';
 
 class CommentIcon extends StatelessWidget {
   const CommentIcon({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class CommentIcon extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.comment_outlined, color: Colors.white, size: 30.0),
+          Icon(TikTokIcons.chat_bubble, color: Colors.white),
           Text(
             "23K",
             style: TextStyle(color: Colors.grey, fontSize: 12.0),

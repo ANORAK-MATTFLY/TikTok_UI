@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tiktok_ui/models/post-model.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:tiktok_ui/widgets/add-icon.dart';
 import 'package:tiktok_ui/widgets/comment.dart';
 import 'package:tiktok_ui/widgets/like-button.dart';
+import 'package:tiktok_ui/widgets/tiktok_icons.dart';
 // import 'package:trendy/features/discover/presentation/widgets/like_icon.dart';
 // import 'package:trendy/features/timeline/infrastructur/models/post_model.dart';
 import 'package:video_player/video_player.dart';
@@ -34,19 +35,37 @@ class _HomeScreenState extends State<HomeScreen>
   Widget getBody() {
     final viewSize = MediaQuery.of(context).size;
 
-    return RotatedBox(
-      quarterTurns: 1,
-      child: TabBarView(
-        controller: tabController,
-        children: List.generate(posts.length, (index) {
-          return RotatedBox(
-            quarterTurns: -1,
-            child: VideoPlayerItem(
-              viewSize: viewSize,
-              post: posts[index],
-            ),
-          );
-        }),
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(TikTokIcons.home),
+            label: "home",
+            backgroundColor: Colors.black,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(TikTokIcons.search), label: "home"),
+          BottomNavigationBarItem(icon: UploadIcon(), label: "home"),
+          BottomNavigationBarItem(
+              icon: Icon(TikTokIcons.messages), label: "home"),
+          BottomNavigationBarItem(
+              icon: Icon(TikTokIcons.profile), label: "home")
+        ],
+      ),
+      body: RotatedBox(
+        quarterTurns: 1,
+        child: TabBarView(
+          controller: tabController,
+          children: List.generate(posts.length, (index) {
+            return RotatedBox(
+              quarterTurns: -1,
+              child: VideoPlayerItem(
+                viewSize: viewSize,
+                post: posts[index],
+              ),
+            );
+          }),
+        ),
       ),
     );
   }
@@ -132,12 +151,20 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
               child: SafeArea(
                 child: Column(
                   children: <Widget>[
+                    Container(
+                        // color: Colors.white,
+                        width: widget.viewSize.width,
+                        height: 50.0,
+                        child: Center(
+                          child: Text("Following  |  For You",
+                              style: TextStyle(color: Colors.white)),
+                        )),
                     Flexible(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Container(
-                            color: Colors.red,
+                            // color: Colors.red,
                             width: widget.viewSize.width - 10,
                             height: widget.viewSize.height,
                             child: Row(
@@ -149,7 +176,6 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Container(
-                                      // color: Colors.blue,
                                       height: 200.0,
                                       width:
                                           (MediaQuery.of(context).size.width -
@@ -219,9 +245,9 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                                           IconButton(
                                             onPressed: () {},
                                             icon: Icon(
-                                              Icons.share,
+                                              TikTokIcons.reply,
                                               color: Colors.white,
-                                              size: 30.0,
+                                              size: 25.0,
                                             ),
                                           ),
                                           Text(
