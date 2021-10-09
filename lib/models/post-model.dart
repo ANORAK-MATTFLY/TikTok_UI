@@ -40,15 +40,6 @@ final List<PostModel> posts = [
   PostModel(
       id: 1,
       likes: 98,
-      video: "assets/videos/3.mp4",
-      ownerName: "@Will",
-      ownerProfilePicture:
-          "https://image.freepik.com/free-photo/medium-shot-happy-man-smiling_23-2148221808.jpg",
-      textContent: "",
-      comments: 1223),
-  PostModel(
-      id: 1,
-      likes: 98,
       video: "assets/videos/4.mp4",
       ownerName: "@pAlan",
       ownerProfilePicture:
