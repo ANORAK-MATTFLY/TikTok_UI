@@ -6,8 +6,6 @@ import 'package:tiktok_ui/widgets/add-icon.dart';
 import 'package:tiktok_ui/widgets/comment.dart';
 import 'package:tiktok_ui/widgets/like-button.dart';
 import 'package:tiktok_ui/widgets/tiktok_icons.dart';
-// import 'package:trendy/features/discover/presentation/widgets/like_icon.dart';
-// import 'package:trendy/features/timeline/infrastructur/models/post_model.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -99,7 +97,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
   void initState() {
     super.initState();
 
-    videoController = VideoPlayerController.network(widget.post.video!)
+    videoController = VideoPlayerController.asset(widget.post.video!)
       ..setLooping(true)
       ..initialize().whenComplete(() {
         videoController!.setVolume(1);
@@ -140,7 +138,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                       radius: 25,
                     ),
                   ),
-                  // VideoPlayer(videoController!),
+                  VideoPlayer(videoController!),
                 ],
               ),
             ),
@@ -152,7 +150,6 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                 child: Column(
                   children: <Widget>[
                     Container(
-                        // color: Colors.white,
                         width: widget.viewSize.width,
                         height: 50.0,
                         child: Center(
