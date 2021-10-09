@@ -178,45 +178,53 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                                           (MediaQuery.of(context).size.width -
                                               100),
                                       child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
-                                          ListTile(
-                                            leading: Container(
-                                              height: 40.0,
-                                              width: 40.0,
-                                              margin: EdgeInsets.only(
-                                                  top: 10.0, left: 10.0),
-                                              decoration: BoxDecoration(
-                                                color: Colors.grey[50],
-                                                borderRadius: BorderRadius.all(
-                                                  Radius.circular(360),
+                                          Container(
+                                            child: ListTile(
+                                              leading: Container(
+                                                height: 40.0,
+                                                width: 40.0,
+                                                margin: EdgeInsets.only(
+                                                    top: 10.0, left: 10.0),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey[50],
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(360),
+                                                  ),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          360.0),
+                                                  child: Image.asset(
+                                                      "assets/images/avatar.png"),
                                                 ),
                                               ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        360.0),
-                                                child: Image.asset(
-                                                    "assets/images/avatar.png"),
-                                              ),
+                                              title: Text(
+                                                  widget.post.ownerName!,
+                                                  style: TextStyle(
+                                                      color: Colors.white)),
+                                              subtitle: Text("#dance #fyp #fy",
+                                                  style: TextStyle(
+                                                      color: Colors.grey)),
                                             ),
-                                            title: Text(widget.post.ownerName!,
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                            subtitle: Text("#dance #fyp #fy",
-                                                style: TextStyle(
-                                                    color: Colors.grey)),
                                           ),
-                                          ListTile(
-                                            leading: Container(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: Lottie.asset(
-                                                  'assets/lottie/vynile.json'),
-                                            ),
-                                            title: Text(
-                                              "🎵 Justin Bieber - Changes",
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                          Container(
+                                            child: ListTile(
+                                              leading: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                child: Lottie.asset(
+                                                    'assets/lottie/vynile.json'),
+                                              ),
+                                              title: Text(
+                                                "🎵 Justin Bieber - Changes",
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -227,16 +235,19 @@ class _VideoPlayerItemState extends State<VideoPlayerItem>
                                 Container(
                                   height:
                                       MediaQuery.of(context).size.height / 2,
-                                  // width: 80,
-                                  // color: Colors.blue,
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       CommentIcon(),
+                                      SizedBox(
+                                        height: 40.0,
+                                      ),
                                       LikeIcon(post: widget.post),
+                                      SizedBox(
+                                        height: 40.0,
+                                      ),
                                       Row(
                                         children: [
                                           IconButton(
